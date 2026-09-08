@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.vercel/
+out/
+.env*
+*.tsbuildinfo
+next-env.d.ts
+*.log
+AGENTS.md
+CLAUDE.md

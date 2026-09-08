@@ -1,0 +1,353 @@
+import StudioVideo from './studio-video';
+import Prices from './prices';
+import Image from 'next/image';
+const wa =
+  'https://wa.me/905438927719?text=Merhaba%2C%20randevu%20i%C3%A7in%20m%C3%BCsaitlik%20%C3%B6%C4%9Frenmek%20istiyorum.';
+const services = [
+  ['Saç tasarımı', 'EA sarısı, bakır tonları ve saç bakımı'],
+  ['Makyaj', 'Gününüze eşlik eden dokunuşlar'],
+  ['Gelin hazırlığı', 'Özel gününüz için saç ve makyaj'],
+  ['El & tırnak', 'Bakımlı eller, zarif detaylar'],
+  ['Ağda', 'Kişisel bakım'],
+  ['Mikro kaynak', 'Uzunluk ve hacim'],
+];
+export default function Home() {
+  return (
+    <>
+      <header className="header">
+        <a
+          className="brand-logo"
+          href="#anasayfa"
+          aria-label="EA Kuaför — Emre Aktaş, anasayfa"
+        >
+          <Image
+            unoptimized
+            src="/ea-logo.jpeg"
+            alt="Emre Aktaş EA Coiffure Antalya"
+            width={1152}
+            height={2048}
+          />
+        </a>
+        <nav aria-label="Ana menü">
+          <a href="#hakkimizda">Hakkımızda</a>
+          <a href="#hizmetler">Hizmetler</a>
+          <a href="#galeri">Galeri</a>
+          <a href="#fiyatlar">Fiyatlar</a>
+          <a href="#iletisim">İletişim</a>
+        </nav>
+        <a className="button dark" href={wa} target="_blank" rel="noreferrer">
+          Randevu alın ↗
+        </a>
+      </header>
+      <main id="anasayfa">
+        <section className="hero">
+          <div className="hero-copy">
+            <p className="eyebrow">EA KUAFÖR / KEPEZ</p>
+            <h1>
+              Kendinize
+              <br />
+              güzel bir
+              <br />
+              <em>zaman ayırın.</em>
+            </h1>
+            <p>
+              Saç, makyaj ve kişisel bakım.
+              <br />
+              Antalya Kepez, Gülveren’de sizin için bir arada.
+            </p>
+            <div className="actions">
+              <a
+                className="button dark"
+                href={wa}
+                target="_blank"
+                rel="noreferrer"
+              >
+                WhatsApp’tan randevu ↗
+              </a>
+              <a className="text-link" href="#hizmetler">
+                Hizmetleri keşfedin ↓
+              </a>
+            </div>
+          </div>
+          <StudioVideo />
+        </section>
+        <section className="lookbook" aria-labelledby="lookbook-title">
+          <div className="lookbook-intro">
+            <p className="eyebrow">THE EDIT / 01</p>
+            <h2 id="lookbook-title">
+              Son
+              <br />
+              <em>çalışmalarımız.</em>
+            </h2>
+            <p>Salondan son dokunuşlar.</p>
+            <a
+              className="text-link"
+              href="https://www.instagram.com/eakuaforr/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram’da keşfedin ↗
+            </a>
+          </div>
+          <div className="lookbook-track">
+            {[
+              { src: '/ea-sac-calismasi.mp4', time: 2, label: 'Renk & ışık' },
+              { src: '/ea-son-calisma.mp4', time: 1, label: 'Yeni çalışmamız' },
+              {
+                src: '/ea-son-calisma.mp4',
+                time: 3,
+                label: 'Detaylara yakından',
+              },
+            ].map((item, i) => (
+              <a
+                className="lookbook-card"
+                key={i}
+                href={item.src}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={item.label + ', videoyu aç'}
+              >
+                <video
+                  muted
+                  playsInline
+                  preload="metadata"
+                  aria-hidden="true"
+                  src={item.src + '#t=' + item.time}
+                />
+                <span className="reel-number">0{i + 1} / EA</span>
+                <span className="reel-caption">
+                  {item.label} <b>↗</b>
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
+        <div className="service-strip">
+          <span>SAÇ TASARIMI</span>
+          <i>✦</i>
+          <span>GELİN HAZIRLIĞI</span>
+          <i>✦</i>
+          <span>MAKYAJ</span>
+          <i>✦</i>
+          <span>KİŞİSEL BAKIM</span>
+        </div>
+        <section className="section" id="hizmetler">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">01 / HİZMETLERİMİZ</p>
+              <h2>
+                Her detayda <em>siz.</em>
+              </h2>
+            </div>
+            <p>Günlük bakımınızdan özel gün hazırlığınıza.</p>
+          </div>
+          <div className="services">
+            {services.map(([title, description], i) => (
+              <a
+                className="service"
+                key={title}
+                href={
+                  'https://wa.me/905438927719?text=' +
+                  encodeURIComponent(
+                    'Merhaba, ' + title + ' hakkında bilgi almak istiyorum.',
+                  )
+                }
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="number">0{i + 1}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <span className="service-link">Bilgi alın ↗</span>
+              </a>
+            ))}
+          </div>
+          <p className="note">
+            Hizmet fiyatlarını aşağıda inceleyebilir, randevu için bize
+            ulaşabilirsiniz.
+          </p>
+        </section>
+        <section className="about section" id="hakkimizda">
+          <div className="location-panel">
+            <p className="eyebrow">02 / BİZİ ZİYARET EDİN</p>
+            <iframe
+              title="EA Kuaför — Kepez konumu"
+              src="https://maps.google.com/maps?q=3725%20Sokak%20No%202%20Kepez%20Antalya&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <p>3725 Sokak No: 2, 07220 Kepez / Antalya</p>
+          </div>
+          <div>
+            <h2>
+              Bakımınız için bir mola.
+              <br />
+              <em>Kepez’de buluşalım.</em>
+            </h2>
+            <p>
+              Emre Aktaş’ın kurucusu olduğu EA Kuaför’de saçınıza ayırdığınız
+              zaman, size özel bir dokunuşa dönüşür. EA sarısı, bakır tonları ve
+              mikro kaynak için Gülveren’de buluşalım.
+            </p>
+            <a className="text-link" href="tel:+905438927719">
+              Bizi arayın: 0543 892 77 19 ↗
+            </a>
+          </div>
+        </section>
+        <section className="section" id="galeri">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">03 / GALERİ</p>
+              <h2>
+                Bizim <em>dokunuşlarımız.</em>
+              </h2>
+            </div>
+            <a
+              className="text-link"
+              href="https://www.instagram.com/eakuaforr/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram’da keşfedin ↗
+            </a>
+          </div>
+          <div className="gallery">
+            <article className="gallery-media gallery-hair">
+              <div className="gallery-media-heading">
+                <span>01 / HAIR EDIT</span>
+                <h3>Saç &amp; renk</h3>
+              </div>
+              <video
+                muted
+                controls
+                playsInline
+                preload="metadata"
+                aria-label="EA Kuaför saç ve renk uygulaması"
+              >
+                <source src="/sac-ve-renk.mp4" type="video/mp4" />
+              </video>
+            </article>
+            <article className="gallery-media gallery-hair">
+              <div className="gallery-media-heading">
+                <span>02 / HAIR EDIT</span>
+                <h3>Saç &amp; renk</h3>
+              </div>
+              <video
+                muted
+                controls
+                playsInline
+                preload="metadata"
+                aria-label="EA Kuaför son saç ve renk çalışması"
+              >
+                <source src="/ea-son-calisma.mp4" type="video/mp4" />
+              </video>
+            </article>
+            <article className="gallery-media gallery-salon">
+              <div className="gallery-media-heading">
+                <span>03 / THE STUDIO</span>
+                <h3>Salonumuz</h3>
+              </div>
+              <a
+                href="/ea-salon.jpeg"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Salon fotoğrafını tam boy aç"
+              >
+                <Image
+                  unoptimized
+                  src="/ea-salon.jpeg"
+                  alt="Emre Aktaş EA Coiffure salonunun ışıklandırılmış dış cephesi"
+                  width={1320}
+                  height={904}
+                />
+              </a>
+            </article>
+          </div>
+        </section>
+        <Prices />
+        <section className="contact section" id="iletisim">
+          <div>
+            <p className="eyebrow">04 / İLETİŞİM & RANDEVU</p>
+            <h2>
+              Bir sonraki randevunuz,
+              <br />
+              <em>bir mesaj uzağınızda.</em>
+            </h2>
+            <div className="actions">
+              <a
+                className="button light"
+                href={wa}
+                target="_blank"
+                rel="noreferrer"
+              >
+                WhatsApp’tan yazın ↗
+              </a>
+              <a className="text-link" href="tel:+905438927719">
+                0543 892 77 19
+              </a>
+            </div>
+          </div>
+          <div className="contact-details">
+            <h3>EA Kuaför</h3>
+            <p>
+              3725 Sokak No: 2<br />
+              07220 Kepez / Antalya
+            </p>
+            <p>
+              Her gün 09.00–22.00
+              <br />
+              Pazar günleri de açığız.
+            </p>
+            <p>
+              <a
+                className="text-link"
+                href={
+                  'https://www.google.com/maps/search/?api=1&query=' +
+                  encodeURIComponent('3725 Sokak No 2 Kepez Antalya')
+                }
+                target="_blank"
+                rel="noreferrer"
+              >
+                Haritada ara ↗
+              </a>
+            </p>
+            <a
+              href="https://www.instagram.com/eakuaforr/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              @eakuaforr ↗
+            </a>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <a
+          className="brand-logo"
+          href="#anasayfa"
+          aria-label="EA Kuaför — Emre Aktaş, anasayfa"
+        >
+          <Image
+            unoptimized
+            src="/ea-logo.jpeg"
+            alt="Emre Aktaş EA Coiffure Antalya"
+            width={1152}
+            height={2048}
+          />
+        </a>
+        <p>© {new Date().getFullYear()} EA Kuaför</p>
+        <a href="#anasayfa">Başa dön ↑</a>
+      </footer>
+      <a
+        className="floating"
+        href={wa}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="WhatsApp üzerinden randevu alın"
+      >
+        WhatsApp ↗
+      </a>
+    </>
+  );
+}
