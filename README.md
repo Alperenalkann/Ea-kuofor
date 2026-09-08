@@ -1,36 +1,139 @@
-# EA Kuaför — GitHub ve Vercel
+# 💈 EA Kuaför
 
-Bu klasör tek başına çalışan Next.js projesidir. GitHub deposunun köküne BU KLASÖRÜN İÇERİĞİNİ gönderin. Üstteki Sites projesini göndermeyin.
+Antalya Kepez'de faaliyet gösteren **EA Kuaför** için geliştirilmiş modern, responsive ve kullanıcı odaklı web sitesi.
 
-## Bilgisayarda
-Node.js 22 veya 24 LTS kullanın.
+Projenin amacı; işletmenin hizmetlerini, fiyatlarını ve çalışmalarını dijital ortamda kolayca sergilemesini sağlarken müşterilerin **WhatsApp üzerinden hızlıca randevu oluşturabilmesine** olanak tanımaktır.
 
-    npm ci
-    npm run dev
+🌐 **Canlı Demo:** https://ea-kuafor1.vercel.app/
 
-Kontrol:
+---
 
-    npm run build
-    npm run typecheck
+## ✨ Özellikler
 
-## Vercel
-1. Bu klasörün içeriğiyle GitHub'da bir depo oluşturun.
-2. Vercel'de Add New > Project ile depoyu seçin.
-3. Framework: Next.js. Root Directory: `.` (bu klasörün içeriğini köke gönderdiyseniz).
-4. Build: `npm run build`. Output Directory: varsayılan. Node.js: 22.x veya 24.x.
-5. Deploy. API anahtarı veya ortam değişkeni gerekmiyor.
+* 📱 Responsive ve mobil uyumlu tasarım
+* 💇‍♂️ Hizmet ve fiyat listesi
+* 🖼️ Kuaför çalışmalarının sergilendiği galeri
+* 💬 WhatsApp üzerinden hızlı randevu
+* 📍 Konum ve yol tarifi
+* 📞 İletişim bilgilerine hızlı erişim
+* 🎥 Video ve görsel içerikler
+* ⚡ Hızlı ve sade kullanıcı deneyimi
 
-Videolar ve resimler `public` içindedir, GitHub'a dahil edilmelidir. `node_modules`, `.next`, eski Instagram HTML dosyaları, `.openai` ve eski yayın arşivi gönderilmemelidir.
+---
 
-## İçerik düzenleme
-- `app/page.tsx`: salon, adres, galeri ve WhatsApp bağlantıları.
-- `app/prices.tsx`: referans fiyatlar ve hesaplama. 500 TL üzerindekilerden 100 TL düşer; 500 TL ve altı korunur. Fiyat aralıklarının uçları ayrı hesaplanır.
-- `app/globals.css`: görünüm.
-- `app/studio-video.tsx`: ana video davranışı.
+## 🛠️ Kullanılan Teknolojiler
 
-## İşletmenin son kontrolü
-Adres son gönderilen ekran görüntüsüne göre 3725 Sokak No:2, 07220 Kepez/Antalya olarak kullanılıyor. Harita adres aramasıyla oluşturulmuştur; işletmenin kesin Google Maps paylaşım bağlantısı gelirse onunla değiştirin.
-Hizmetlerin tamamını, fiyatları ve her gün 09.00–22.00 saatini yayından önce işletme olarak kontrol edin.
-Google Maps ve Google Fonts harici bağlantılardır; internet/servis engellerinde yazılı adres, yol tarifi bağlantısı ve sistem fontları kullanılabilir.
+* **Next.js**
+* **React**
+* **TypeScript**
+* **CSS**
+* **Vercel**
+* **Git & GitHub**
 
-Mevcut Sites yayını bu paketin hazırlanmasıyla değiştirilmedi. GitHub'a push ve Vercel yayını kullanıcı tarafından yapılacak.
+---
+
+## 🎯 Projenin Amacı
+
+Bu proje yalnızca bir web arayüzü oluşturmak amacıyla değil, **gerçek bir işletmenin dijital ihtiyacına çözüm üretmek** amacıyla geliştirildi.
+
+Temel hedefler:
+
+* İşletmenin dijital görünürlüğünü artırmak
+* Müşterilerin hizmet ve fiyat bilgilerine kolay ulaşmasını sağlamak
+* Telefon trafiğini azaltarak WhatsApp üzerinden randevu sürecini kolaylaştırmak
+* Mobil cihazlarda hızlı ve anlaşılır bir kullanıcı deneyimi sunmak
+
+---
+
+## 💬 WhatsApp Randevu Akışı
+
+Kullanıcılar web sitesi üzerinden kuaförün hizmetlerini ve fiyatlarını inceleyebilir.
+
+Randevu almak isteyen kullanıcı, WhatsApp yönlendirmesi sayesinde işletmeyle doğrudan iletişime geçebilir.
+
+Bu sayede ayrıca bir üyelik veya karmaşık rezervasyon sistemi kullanılmadan basit bir randevu deneyimi sunulur.
+
+---
+
+## 📁 Proje Yapısı
+
+```text
+Ea-kuofor/
+├── app/
+│   ├── page.tsx
+│   ├── prices.tsx
+│   ├── studio-video.tsx
+│   └── globals.css
+├── components/
+│   └── ui/
+├── lib/
+├── public/
+├── next.config.ts
+├── package.json
+├── tsconfig.json
+└── vercel.json
+```
+
+---
+
+## 🚀 Lokal Olarak Çalıştırma
+
+Projeyi bilgisayarınızda çalıştırmak için:
+
+```bash
+git clone https://github.com/Alperenalkann/Ea-kuofor.git
+
+cd Ea-kuofor
+
+npm install
+
+npm run dev
+```
+
+Ardından tarayıcınızdan:
+
+```text
+http://localhost:3000
+```
+
+adresine giderek projeyi görüntüleyebilirsiniz.
+
+---
+
+## 🌐 Deployment
+
+Proje **Vercel** üzerinde yayınlanmaktadır.
+
+🔗 **Canlı Site:**
+https://ea-kuafor1.vercel.app/
+
+🔗 **GitHub Repository:**
+https://github.com/Alperenalkann/Ea-kuofor
+
+---
+
+## 📌 Gelecekte Eklenebilecek Özellikler
+
+* Online randevu sistemi
+* Admin paneli
+* Hizmet ve fiyat yönetimi
+* Galeri yönetimi
+* Müşteri yorumları
+* SEO geliştirmeleri
+* Google Maps entegrasyonunun geliştirilmesi
+
+---
+
+## 👨‍💻 Geliştirici
+
+**Alperen Alkan**
+
+Bilgisayar Mühendisliği öğrencisi olarak web geliştirme ve yazılım projeleri üzerinde çalışıyorum.
+
+GitHub:
+https://github.com/Alperenalkann
+
+---
+
+⭐ Projeyi beğendiyseniz repository'ye yıldız bırakabilirsiniz.
+
