@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 const siteUrl = 'https://ea-kuafor1.vercel.app/';
-const title = 'EA Kuaför | Antalya Kepez Erkek Kuaförü';
-const description = "Antalya Kepez'de profesyonel erkek kuaförü. Saç kesimi, sakal tıraşı, saç bakımı ve kuaför hizmetleri için EA Kuaför ile iletişime geçin.";
+const title = 'EA Kuaför | Antalya Kepez Kuaför';
+const description = "Antalya Kepez'de saç kesimi, ombre, sombre, renklendirme, mikro kaynak ve saç bakımı için EA Kuaför. Bilgi ve randevu için bizimle iletişime geçin.";
 const salonImage = { url: '/ea-salon.jpeg', width: 1320, height: 904, alt: 'EA Kuaför salonunun ışıklandırılmış dış cephesi' };
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title,
   description,
   applicationName: 'EA Kuaför',
-  keywords: ['EA Kuaför', 'Antalya erkek kuaförü', 'Kepez kuaför', 'saç kesimi Antalya'],
+  keywords: ['EA Kuaför', 'Antalya kuaför', 'Kepez kuaför', 'saç kesimi Antalya'],
   creator: 'EA Kuaför',
   publisher: 'EA Kuaför',
   alternates: { canonical: siteUrl },
