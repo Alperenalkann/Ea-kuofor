@@ -1,23 +1,60 @@
 import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
 import './globals.css';
 
+const siteUrl = 'https://ea-kuafor1.vercel.app/';
+const title = 'EA Kuaför | Antalya Kepez Erkek Kuaförü';
+const description = "Antalya Kepez'de profesyonel erkek kuaförü. Saç kesimi, sakal tıraşı, saç bakımı ve kuaför hizmetleri için EA Kuaför ile iletişime geçin.";
+const salonImage = { url: '/ea-salon.jpeg', width: 1320, height: 904, alt: 'EA Kuaför salonunun ışıklandırılmış dış cephesi' };
+
 export const metadata: Metadata = {
-  title: 'EA Kuaför | Antalya Kepez',
-  description:
-    'Antalya Kepez’de EA Kuaför. Saç tasarımı, renklendirme ve bakım için WhatsApp veya telefon üzerinden randevu alın.',
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  applicationName: 'EA Kuaför',
+  keywords: ['EA Kuaför', 'Antalya erkek kuaförü', 'Kepez kuaför', 'saç kesimi Antalya'],
+  creator: 'EA Kuaför',
+  publisher: 'EA Kuaför',
+  alternates: { canonical: siteUrl },
   robots: { index: true, follow: true },
   icons: { icon: '/ea-logo.jpeg' },
+  openGraph: { title, description, url: siteUrl, siteName: 'EA Kuaför', type: 'website', locale: 'tr_TR', images: [salonImage] },
+  twitter: { card: 'summary_large_image', title, description, images: [salonImage] },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+// Phone, address and hours mirror the existing contact section.
+const business = {
+  '@context': 'https://schema.org',
+  '@type': 'HairSalon',
+  '@id': `${siteUrl}#business`,
+  name: 'EA Kuaför',
+  url: siteUrl,
+  image: new URL('/ea-salon.jpeg', siteUrl).href,
+  logo: new URL('/ea-logo.jpeg', siteUrl).href,
+  telephone: '+905438927719',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '3725 Sokak No:2',
+    addressLocality: 'Kepez',
+    addressRegion: 'Antalya',
+    postalCode: '07220',
+    addressCountry: 'TR',
+  },
+  openingHoursSpecification: [{
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '09:00',
+    closes: '22:00',
+  }],
+  sameAs: ['https://www.instagram.com/eakuaforr/'],
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="tr">
-      <body>{children}</body>
+      <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(business).replace(/</g, '\\u003c') }} />
+        {children}
+      </body>
     </html>
   );
 }
